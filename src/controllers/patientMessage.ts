@@ -13,5 +13,5 @@ export const postParsedPatientMessage = async (req: Express.Request, res: Expres
         return;
     }
 
-    res.status(200).json({ parsedMessage });
+    res.status(200).json(parsedMessage);
 }
