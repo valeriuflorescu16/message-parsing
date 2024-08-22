@@ -13,16 +13,18 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Missing MSG segment.");
             }
         });
 
         it('throws an error if PRS segment is missing', () => {
-            jsonPatientMessage = jsonPatientMessage.replace("PRS|1|9876543210^^^Location^ID||Smith^John^A|||M|19801031|", "");
+            jsonPatientMessage = jsonPatientMessage.replace("PRS|1|9876543210^^^Location^ID||Florescu^Valeriu^A|||M|19801031|", "");
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Missing PRS segment.");
             }
@@ -33,6 +35,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Missing DET segment.");
             }
@@ -43,6 +46,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Missing EVT segment.");
             }
@@ -53,6 +57,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Invalid date format.");
             }
@@ -63,6 +68,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Invalid date format.");
             }
@@ -73,6 +79,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Invalid date format.");
             }
@@ -83,6 +90,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Invalid date format.");
             }
@@ -93,6 +101,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Invalid date value.");
             }
@@ -103,16 +112,29 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
+            } catch (error) {
+                expect(error.message).toBe("Invalid date value.");
+            }
+        });
+
+        it('throws an error if date year is invalid', () => {
+            jsonPatientMessage = jsonPatientMessage.replace("19801031", "00001031");
+
+            try {
+                parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Invalid date value.");
             }
         });
 
         it('throws an error if last name is missing', () => {
-            jsonPatientMessage = jsonPatientMessage.replace("Smith^John^A", "^Valeriu");
+            jsonPatientMessage = jsonPatientMessage.replace("Florescu^Valeriu^A", "^Valeriu");
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Last name is missing.");
             }
@@ -123,6 +145,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("First name is missing.");
             }
@@ -133,6 +156,7 @@ describe("patientMessage", () => {
 
             try {
                 parseMessage(jsonPatientMessage);
+                fail();
             } catch (error) {
                 expect(error.message).toBe("Primary condition is missing.");
             }
