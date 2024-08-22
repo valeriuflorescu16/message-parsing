@@ -49,7 +49,7 @@ The project is organized with a clear separation of concerns in mind:
 
 In a full-fledged application, the structure would be further expanded to include additional layers and components to ensure maintainability, scalability, and robustness:
 
-1. Data Access Layer (Repositories): This layer would interact with the database, abstracting all database operations such as querying and inserting records. This abstraction allows for easier changes to the database technology or structure without affecting other parts of the application.
+1. Data Access Layer: This layer would interact with the database, abstracting all database operations such as querying and inserting records. This abstraction allows for easier changes to the database technology or structure without affecting other parts of the application.
 
 2. Centralized Error Handling: A dedicated middleware for catching and handling errors consistently across the application. This would include:
 
